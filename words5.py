@@ -1,8 +1,9 @@
-import re
-import scrabble
+from scrabble import wordlist, scores
 
-# Use a regular expression to find and print all words containing 'uu'.
-pattern = re.compile("uu")
-for word in scrabble.wordlist:
-    if pattern.search(word):
-        print(word)
+for word in wordlist:
+    if "mako" in word:
+        word_score = 0
+        for letter in word:
+            word_score = word_score + scores[letter]
+            print("score for the word " + word + " is " + str(word_score))
+
